@@ -1,4 +1,4 @@
-package com.rnb;
+package com.astro.genshinimpactwishcounter;
 
 import android.os.Bundle;
 import org.devio.rn.splashscreen.SplashScreen;
@@ -19,7 +19,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "rnb";
+    return "GenshinImpactWishCounter";
   }
 
   @Override
