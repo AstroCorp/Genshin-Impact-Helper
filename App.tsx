@@ -11,7 +11,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Home from './src/screens/Home';
+import Home from './src/screens/home';
 
 const store = configureStore();
 const Stack = createStackNavigator();

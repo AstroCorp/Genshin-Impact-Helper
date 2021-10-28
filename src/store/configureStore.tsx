@@ -1,20 +1,13 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import axiosMiddleware from 'redux-axios-middleware';
-import axios from 'axios';
 import exampleReducer from './reducers/exampleReducer';
-
-const client = axios.create({
-	baseURL: 'https://api.github.com/users/AstroCorp/repos',
-	responseType: 'json',
-});
 
 const composeEnhancers = composeWithDevTools({});
 
 const persistConfig = {
-	key: 'example',
+	key: 'Genshin Impact Wish Counter',
 	storage: AsyncStorage,
 };
 
@@ -25,10 +18,7 @@ const rootReducer = combineReducers({
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const configureStore = () => {
-	const store = createStore(
-		persistedReducer,
-		composeEnhancers(applyMiddleware(axiosMiddleware(client))),
-	);
+	const store = createStore(persistedReducer, composeEnhancers());
 	const persistor = persistStore(store);
 
 	return { store, persistor };

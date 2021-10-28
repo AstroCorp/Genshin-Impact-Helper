@@ -1,1 +1,1 @@
-export { increment, decrement, listRepos } from './exampleActions';
+export { increment, decrement } from './exampleActions';
