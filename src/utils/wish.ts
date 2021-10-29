@@ -21,6 +21,7 @@ const getLog = (url: URL, wishNumber: number, page: number, lastId: string): Pro
         fetch('https://api.allorigins.win/raw?url=' + encodeURIComponent(url.href))
         .then(res => res.json())
         .then(res => {
+            if (res.retcode !== 0) reject(res.message);
             resolve(res.data.list);
         })
         .catch(err => reject(err));

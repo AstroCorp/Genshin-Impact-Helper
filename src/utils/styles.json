@@ -1,0 +1,23 @@
+{
+    "bg-modal-header": {
+        "backgroundColor": "#454C5C"
+    },
+    "bg-modal-content": {
+        "backgroundColor": "#F9F6F1"
+    },
+    "border-modal-title": {
+        "borderTopColor": "#D17B6A",
+        "borderRightColor": "#D17B6A",
+        "borderBottomColor": "#D17B6A",
+        "borderLeftColor": "#D17B6A"
+    },
+    "border-modal-header": {
+        "borderTopColor": "#545B6B",
+        "borderRightColor": "#545B6B",
+        "borderBottomColor": "#545B6B",
+        "borderLeftColor": "#545B6B"
+    },
+    "font-genshin": {
+        "fontFamily": "HYWenHei-85W"
+    }
+}
