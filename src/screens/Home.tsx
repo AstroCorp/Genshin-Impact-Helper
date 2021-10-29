@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableNativeFeedback, Alert } from 'react-native';
-import SafeAreaView from 'react-native-safe-area-view';
-import { HomeProps } from '../types';
+import { View, Text, TouchableNativeFeedback, Alert, ImageBackground } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
+import { tailwind } from '../utils/tailwind';
+import { setBanners } from '../store/actions';
+import { GenshinData, HomeProps, State } from '../types';
 import wishCounter from '../utils/wish';
 
 const Home = (props: HomeProps) => {
@@ -19,20 +23,41 @@ const Home = (props: HomeProps) => {
 		setLoading(true);
 
 		await wishCounter(url.toString()).then(banners => {
-			console.log(banners);
+			setBanners(banners);
 			setLoading(false);
 		});
 	}
 
 	return (
-		<SafeAreaView style={{ flex: 1 }}>
-			<TouchableNativeFeedback onPress={initWishCounter}>
-				<View>
-					<Text>Get wishes</Text>
+		<SafeAreaView style={tailwind('flex-1')}>
+			<ImageBackground 
+				source={require('../assets/images/background.jpg')}
+				resizeMode="cover"
+				style={tailwind('flex-1 justify-center items-center')}
+			>
+				<View style={tailwind('bg-white bg-opacity-25 w-5/6 border-2 border-white border-opacity-50 rounded p-4')}>
+					<TouchableNativeFeedback onPress={initWishCounter}>
+						<View style={tailwind('bg-yellow-400')}>
+							<Text style={tailwind('font-genshin text-white')}>Get wishes</Text>
+						</View>
+					</TouchableNativeFeedback>
 				</View>
-			</TouchableNativeFeedback>
+				
+			</ImageBackground>
 		</SafeAreaView>
 	);
 };
 
-export default Home;
+const mapStateToProps = (state: State) => {
+    return {
+        banners: state.mainReducer.banners,
+    };
+}
+
+const mapDispatchToProps = (dispatch: Dispatch) => {
+    return {
+        setBanners: (value: GenshinData[]) => dispatch(setBanners(value)),
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

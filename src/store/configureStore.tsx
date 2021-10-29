@@ -2,7 +2,7 @@ import { createStore, combineReducers } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import exampleReducer from './reducers/exampleReducer';
+import mainReducer from './reducers/mainReducer';
 
 const composeEnhancers = composeWithDevTools({});
 
@@ -12,7 +12,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-	exampleReducer,
+	mainReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

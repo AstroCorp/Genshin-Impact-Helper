@@ -1,1 +1,1 @@
-export { increment, decrement } from './exampleActions';
+export { setBanners } from './mainActions';

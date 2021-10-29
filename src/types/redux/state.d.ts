@@ -1,7 +1,9 @@
-export interface exampleReducer {
-    counter: number;
+import { GenshinData } from '..';
+
+export interface MainReducer {
+    banners: GenshinData[];
 }
 
 export interface State {
-	exampleReducer: exampleReducer;
+	mainReducer: MainReducer;
 }
