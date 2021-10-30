@@ -1,4 +1,4 @@
-package com.astro.genshinimpactwishcounter;
+package com.astro.ghhelper;
 
 import android.os.Bundle;
 import org.devio.rn.splashscreen.SplashScreen;
@@ -19,7 +19,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "GenshinImpactWishCounter";
+    return "GenshinImpactHelper";
   }
 
   @Override
