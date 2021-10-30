@@ -9,12 +9,12 @@ import SplashScreen from 'react-native-splash-screen';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import Home from './src/screens/home';
+import WishCounterScreen from './src/screens/wishCounterScreen';
 
 const store = configureStore();
-const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
 const App = () => {
 	const [isConnected, setIsConnected] = useState(true);
@@ -35,20 +35,23 @@ const App = () => {
 			<Provider store={store.store}>
 				<PersistGate loading={null} persistor={store.persistor}>
 					<NavigationContainer>
-						<Stack.Navigator 
-							screenOptions={{ 
+						<Drawer.Navigator 
+							initialRouteName="WishCounterScreen"
+							screenOptions={{
 								headerShown: false,
 							}}
 						>
-							<Stack.Screen name="Home" component={Home} />
-						</Stack.Navigator>
+							<Drawer.Screen name="WishCounterScreen" component={WishCounterScreen} />
+						</Drawer.Navigator>
 					</NavigationContainer>
 
-					{!isConnected && (
-						<View style={styles.bg}>
-							<Text style={styles.text}>Sin conexión</Text>
-						</View>
-					)}
+					{
+						!isConnected && (
+							<View style={styles.bg}>
+								<Text style={styles.text}>Sin conexión</Text>
+							</View>
+						)
+					}
 				</PersistGate>
 			</Provider>
 		</SafeAreaProvider>

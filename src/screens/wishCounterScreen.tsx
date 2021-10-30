@@ -10,7 +10,7 @@ import wishCounter from '../utils/wish';
 import HelpModal from '../components/helpModal';
 import { TextInput } from 'react-native-gesture-handler';
 
-const Home = (props: HomeProps) => {
+const WishCounterScreen = (props: HomeProps) => {
 	const [ isVisible, setIsVisible ] = useState<boolean>(false);
 	const [ url, setUrl ] = useState<string>('');
 	const [ loading, setLoading ] = useState<boolean>(false);
@@ -95,4 +95,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(WishCounterScreen);
