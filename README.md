@@ -1,3 +1,3 @@
-# Genshin Impact Wish Counter
+# Genshin Impact Helper
 
-> Aplicación para android con la que se puede calcular el pity de Genshin Impact.
+> Aplicación para android que proporciona herramientas para Genshin Impact.

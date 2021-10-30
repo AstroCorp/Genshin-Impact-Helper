@@ -7,7 +7,7 @@ import mainReducer from './reducers/mainReducer';
 const composeEnhancers = composeWithDevTools({});
 
 const persistConfig = {
-	key: 'Genshin Impact Wish Counter',
+	key: 'Genshin Impact Helper',
 	storage: AsyncStorage,
 };
 
