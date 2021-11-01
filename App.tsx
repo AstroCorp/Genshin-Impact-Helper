@@ -1,34 +1,19 @@
 import 'react-native-gesture-handler';
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import configureStore from './src/store/configureStore';
 import { PersistGate } from 'redux-persist/integration/react';
-import NetInfo from '@react-native-community/netinfo';
 import SplashScreen from 'react-native-splash-screen';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-
-import WishCounterScreen from './src/screens/wishCounterScreen';
+import { WishCounterScreen } from './src/screens';
 
 const store = configureStore();
 const Drawer = createDrawerNavigator();
 
 const App = () => {
-	const [isConnected, setIsConnected] = useState(true);
-
-	useEffect(() => {
-		SplashScreen.hide();
-		toggleInternetStatus();
-
-		return () => toggleInternetStatus();
-	});
-
-	const toggleInternetStatus = () => {
-		NetInfo.addEventListener((state) => setIsConnected(state.isConnected));
-	};
+	useEffect(() => SplashScreen.hide());
 
 	return (
 		<SafeAreaProvider>
@@ -44,35 +29,10 @@ const App = () => {
 							<Drawer.Screen name="WishCounterScreen" component={WishCounterScreen} />
 						</Drawer.Navigator>
 					</NavigationContainer>
-
-					{
-						!isConnected && (
-							<View style={styles.bg}>
-								<Text style={styles.text}>Sin conexión</Text>
-							</View>
-						)
-					}
 				</PersistGate>
 			</Provider>
 		</SafeAreaProvider>
 	);
-};
-
-const styles = StyleSheet.create({
-	bg: {
-		position: 'absolute',
-		height: '100%',
-		width: '100%',
-		flex: 1,
-		backgroundColor: 'rgba(0,0,0,0.1)',
-		justifyContent: 'flex-end',
-		alignItems: 'center',
-	},
-
-	text: {
-		color: '#E51212',
-		marginBottom: 35,
-	},
-});
+}
 
 export default App;

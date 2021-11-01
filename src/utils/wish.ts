@@ -31,10 +31,22 @@ const getLog = (url: URL, wishNumber: number, page: number, lastId: string): Pro
 const wishCounter = async (genshinUrl: string): Promise<GenshinData[]> => {
     const url = new URL(genshinUrl);
     const types = [
-        100, // Beginners
-        200, // Standard
-        301, // Character
-        302, // Weapon
+        {
+            code: 100,
+            title: 'Beginners',
+        },
+        {
+            code: 200,
+            title: 'Standard',
+        },
+        {
+            code: 301,
+            title: 'Character',
+        },
+        {
+            code: 302,
+            title: 'Weapon',
+        },
     ];
     const wishList = [];
 
@@ -49,7 +61,7 @@ const wishCounter = async (genshinUrl: string): Promise<GenshinData[]> => {
         let hasWishes = true;
 
         do {
-            const list = await getLog(url, wishNumber, page, lastId);
+            const list = await getLog(url, wishNumber.code, page, lastId);
             wishes.push(...list);
 
             hasWishes = list.length > 0;

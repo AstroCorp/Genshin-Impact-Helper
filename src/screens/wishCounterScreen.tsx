@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Alert, ImageBackground, StatusBar, Image } from 'react-native';
+import { View, Text, TouchableOpacity, Alert, ImageBackground, StatusBar, Image, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
@@ -7,8 +7,7 @@ import { tailwind } from '../utils/tailwind';
 import { setBanners } from '../store/actions';
 import { GenshinData, HomeProps, State } from '../types';
 import wishCounter from '../utils/wish';
-import HelpModal from '../components/helpModal';
-import { TextInput } from 'react-native-gesture-handler';
+import { HelpModal, Box } from '../components';
 
 const WishCounterScreen = (props: HomeProps) => {
 	const [ isVisible, setIsVisible ] = useState<boolean>(false);
@@ -30,8 +29,6 @@ const WishCounterScreen = (props: HomeProps) => {
 		wishCounter(urlParsed.toString()).then(banners => {
 			props.setBanners(banners);
 			setLoading(false);
-
-			Alert.alert('Results', JSON.stringify(banners));
 		}).catch(err => {
 			setLoading(false);
 			Alert.alert('Ups...', err.toString());
@@ -49,35 +46,58 @@ const WishCounterScreen = (props: HomeProps) => {
 			<ImageBackground 
 				source={require('../assets/images/background.jpg')}
 				resizeMode="cover"
-				style={tailwind('flex-1 justify-center items-center')}
+				style={tailwind('flex-1 justify-center items-center p-4')}
 			>
 				<HelpModal isVisible={isVisible} closeModal={() => setIsVisible(false)} />
 
-				<View style={tailwind('bg-white w-5/6 border-2 border-white border-opacity-50 rounded p-4 items-center')}>
+				<Box header={
+					<Text style={tailwind('font-genshin text-white text-center text-lg border-modal-title border-b p-2 w-1/2')}>
+						Wish Counter
+					</Text>
+				}>
 					{
 						loading ? (
-							<>
+							<View style={tailwind('flex items-center')}>
 								<Image style={tailwind('w-1/2')} resizeMode="contain" source={require('../assets/images/loading.gif')} />
 								<Text>Loading...</Text>
-							</>
+							</View>
 						) : (
-							<>
+							<View style={tailwind('flex items-center')}>
 								<TextInput 
 									onChangeText={text => setUrl(text)}
 									placeholder="Paste text here... Webpage not available..."
-									style={tailwind('bg-white bg-opacity-75 p-2 rounded text-sm mb-4')}
+									style={tailwind('bg-white p-2 rounded text-sm mb-4')}
 								/>
+
 								<TouchableOpacity onPress={initWishCounter}>
-									<View style={tailwind('bg-yellow-400 p-2 rounded w-1/2')}>
+									<View style={tailwind('bg-yellow-400 py-2 px-4 rounded mb-3')}>
 										<Text style={tailwind('font-genshin text-white text-center')}>
 											Get wishes
 										</Text>
 									</View>
 								</TouchableOpacity>
-							</>
+
+								<TouchableOpacity onPress={() => setIsVisible(true)}>
+									<View style={tailwind('bg-yellow-400 py-2 px-4 rounded')}>
+										<Text style={tailwind('font-genshin text-white text-center')}>
+											How to use
+										</Text>
+									</View>
+								</TouchableOpacity>
+							</View>
 						)
 					}
-				</View>
+				</Box>
+				
+				{
+					props.banners.map(banner => (
+						<View style={tailwind('bg-modal-content w-full pb-4')} key={banner.banner.code}>
+							<Text style={tailwind('font-genshin text-center')}>{ banner.banner.title }</Text>
+							<Text style={tailwind('font-genshin text-center')}>Pity 5 starts: { banner.pity.fiveStarts }</Text>
+							<Text style={tailwind('font-genshin text-center')}>Pity 4 starts: { banner.pity.fourStarts }</Text>
+						</View>
+					))
+				}
 			</ImageBackground>
 		</SafeAreaView>
 	);

@@ -11,13 +11,18 @@ export interface GenshinWish {
     id: string;
 }
 
+interface Banner {
+    code: number;
+    title: string;
+}
+
 interface Pity {
     fourStarts: number;
     fiveStarts: number;
 }
 
 export interface GenshinData {
-    banner: number;
+    banner: Banner;
     pity: Pity;
     wishes: GenshinWish[];
 }
