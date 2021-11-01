@@ -38,7 +38,7 @@
     "tailwind-rn": "^3.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.8",
+    "@babel/core": "^7.16.0",
     "@babel/runtime": "^7.15.4",
     "@bam.tech/react-native-make": "^3.0.3",
     "@react-native-community/eslint-config": "^2.0.0",
