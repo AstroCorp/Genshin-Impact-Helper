@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Alert, ImageBackground, StatusBar, Image, TextInput } from 'react-native';
+import { View, Text, TouchableOpacity, Alert, Image, TextInput, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
@@ -7,7 +7,7 @@ import { tailwind } from '../utils/tailwind';
 import { setBanners } from '../store/actions';
 import { GenshinData, HomeProps, State } from '../types';
 import wishCounter from '../utils/wish';
-import { HelpModal, Box } from '../components';
+import { HelpModal } from '../components';
 
 const WishCounterScreen = (props: HomeProps) => {
 	const [ isVisible, setIsVisible ] = useState<boolean>(false);
@@ -36,41 +36,30 @@ const WishCounterScreen = (props: HomeProps) => {
 	}
 
 	return (
-		<SafeAreaView style={tailwind('flex-1')}>
-			<StatusBar 
-				animated={true} 
-				backgroundColor={isVisible ? "#00000A" : "#030224"} 
-				barStyle="light-content"
-			/>
+		<SafeAreaView style={tailwind('bg-content flex-1')}>
+			<HelpModal isVisible={isVisible} closeModal={() => setIsVisible(false)} />
+			
+			<ScrollView>
+				{
+					loading ? (
+						<View style={tailwind('flex items-center')}>
+							<Image 
+								style={tailwind('w-1/2')} 
+								resizeMode="contain" 
+								source={require('../assets/images/loading.gif')} 
+							/>
+						</View>
+					) : (
+						<View style={tailwind('flex items-center mt-4')}>
+							<TextInput 
+								onChangeText={text => setUrl(text)}
+								placeholder="Paste text here... Webpage not available..."
+								style={tailwind('bg-white w-4/5 p-2 rounded text-sm mb-4')}
+							/>
 
-			<ImageBackground 
-				source={require('../assets/images/background.jpg')}
-				resizeMode="cover"
-				style={tailwind('flex-1 justify-center items-center p-4')}
-			>
-				<HelpModal isVisible={isVisible} closeModal={() => setIsVisible(false)} />
-
-				<Box header={
-					<Text style={tailwind('font-genshin text-white text-center text-lg border-modal-title border-b p-2 w-1/2')}>
-						Wish Counter
-					</Text>
-				}>
-					{
-						loading ? (
-							<View style={tailwind('flex items-center')}>
-								<Image style={tailwind('w-1/2')} resizeMode="contain" source={require('../assets/images/loading.gif')} />
-								<Text>Loading...</Text>
-							</View>
-						) : (
-							<View style={tailwind('flex items-center')}>
-								<TextInput 
-									onChangeText={text => setUrl(text)}
-									placeholder="Paste text here... Webpage not available..."
-									style={tailwind('bg-white p-2 rounded text-sm mb-4')}
-								/>
-
-								<TouchableOpacity onPress={initWishCounter}>
-									<View style={tailwind('bg-yellow-400 py-2 px-4 rounded mb-3')}>
+							<View style={tailwind('flex flex-row mb-4')}>
+								<TouchableOpacity style={tailwind('mr-2')} onPress={initWishCounter}>
+									<View style={tailwind('bg-yellow-400 py-2 px-4 rounded')}>
 										<Text style={tailwind('font-genshin text-white text-center')}>
 											Get wishes
 										</Text>
@@ -85,20 +74,50 @@ const WishCounterScreen = (props: HomeProps) => {
 									</View>
 								</TouchableOpacity>
 							</View>
-						)
-					}
-				</Box>
+						</View>
+					)
+				}
 				
 				{
 					props.banners.map(banner => (
-						<View style={tailwind('bg-modal-content w-full pb-4')} key={banner.banner.code}>
-							<Text style={tailwind('font-genshin text-center')}>{ banner.banner.title }</Text>
-							<Text style={tailwind('font-genshin text-center')}>Pity 5 starts: { banner.pity.fiveStarts }</Text>
-							<Text style={tailwind('font-genshin text-center')}>Pity 4 starts: { banner.pity.fourStarts }</Text>
+						<View style={tailwind('m-2')} key={banner.banner.code}>
+							<Text style={tailwind('pl-2 font-genshin')}>{ banner.banner.title }</Text>
+
+							<View style={tailwind('bg-yellow-100 rounded flex flex-row justify-between m-2 p-4')}>
+								<View>
+									<Text style={tailwind('font-genshin text-base')}>
+										5 ★ Pity
+									</Text>
+									<Text style={tailwind('font-genshin text-xs')}>
+										Guaranteed at 90
+									</Text>
+								</View>
+								<View style={tailwind('flex justify-center')}>
+									<Text style={tailwind('font-genshin text-2xl')}>
+										{ banner.pity.fiveStarts }
+									</Text>
+								</View>
+							</View>
+
+							<View style={tailwind('bg-yellow-100 rounded flex flex-row justify-between m-2 p-4')}>
+								<View>
+									<Text style={tailwind('font-genshin text-base')}>
+										4 ★ Pity
+									</Text>
+									<Text style={tailwind('font-genshin text-xs')}>
+										Guaranteed at 10
+									</Text>
+								</View>
+								<View style={tailwind('flex justify-center')}>
+									<Text style={tailwind('font-genshin text-2xl')}>
+										{ banner.pity.fourStarts }
+									</Text>
+								</View>
+							</View>
 						</View>
 					))
 				}
-			</ImageBackground>
+			</ScrollView>
 		</SafeAreaView>
 	);
 };

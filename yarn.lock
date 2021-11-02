@@ -6164,7 +6164,7 @@ react-native-gesture-handler@^1.10.3:
 
 react-native-modal@^13.0.0:
   version "13.0.0"
-  resolved "https://registry.yarnpkg.com/react-native-modal/-/react-native-modal-13.0.0.tgz#b7117400cae8548e713eed760077dee44f78628e"
+  resolved "https://registry.yarnpkg.com/react-native-modal/-/react-native-13.0.0.tgz#b7117400cae8548e713eed760077dee44f78628e"
   integrity sha512-k6r9T31mc7HIDFj1V53ceAAN1dwc8052c4JLtDVEmEQ19Bbq9yiLXoDsQuNb+hB8A+2tVOXmo5Gq4IQfb11upw==
   dependencies:
     prop-types "^15.6.2"

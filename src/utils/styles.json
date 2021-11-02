@@ -1,17 +1,17 @@
 {
-    "bg-modal-header": {
+    "bg-header": {
         "backgroundColor": "#454C5C"
     },
-    "bg-modal-content": {
+    "bg-content": {
         "backgroundColor": "#F9F6F1"
     },
-    "border-modal-title": {
+    "border-title": {
         "borderTopColor": "#D17B6A",
         "borderRightColor": "#D17B6A",
         "borderBottomColor": "#D17B6A",
         "borderLeftColor": "#D17B6A"
     },
-    "border-modal-header": {
+    "border-header": {
         "borderTopColor": "#545B6B",
         "borderRightColor": "#545B6B",
         "borderBottomColor": "#545B6B",
