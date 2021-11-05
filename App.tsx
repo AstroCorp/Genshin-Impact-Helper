@@ -8,7 +8,7 @@ import SplashScreen from 'react-native-splash-screen';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator, DrawerHeaderProps } from '@react-navigation/drawer';
-import { WishCounterScreen } from './src/screens';
+import { WishCounterScreen, SettingsScreen } from './src/screens';
 import { Header } from './src/components';
 
 const store = configureStore();
@@ -30,13 +30,28 @@ const App = () => {
 					<NavigationContainer>
 						<Drawer.Navigator 
 							initialRouteName="WishCounterScreen"
-							screenOptions={{
-								header: (props: DrawerHeaderProps) => (
-									<Header {...props} title="Wish Counter" />
-								),
-							}}
 						>
-							<Drawer.Screen name="WishCounterScreen" component={WishCounterScreen} />
+							<Drawer.Screen 
+								name="WishCounterScreen"
+								options={{
+									title: 'Wish Counter',
+									header: (props: DrawerHeaderProps) => (
+										<Header {...props} title="Wish Counter" />
+									),
+								}}
+								component={WishCounterScreen}
+							/>
+
+							<Drawer.Screen 
+								name="SettingsScreen"
+								options={{
+									title: 'Settings',
+									header: (props: DrawerHeaderProps) => (
+										<Header {...props} title="Settings" />
+									),
+								}}
+								component={SettingsScreen}
+							/>
 						</Drawer.Navigator>
 					</NavigationContainer>
 				</PersistGate>

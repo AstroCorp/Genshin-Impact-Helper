@@ -92,7 +92,13 @@ const WishCounterScreen = (props: HomeProps) => {
 				}
 				
 				{
-					props.banners.map(banner => (
+					props.banners.filter((banner: GenshinData) => {
+						if (banner.banner.code === 100 && props.hiddenBeginnersBanner) {
+							return false;
+						}
+						
+						return true;
+					}).map((banner: GenshinData) => (
 						<View style={tailwind('m-2')} key={banner.banner.code}>
 							<Text style={tailwind('pl-2 font-genshin')}>{ banner.banner.title }</Text>
 
@@ -138,6 +144,7 @@ const WishCounterScreen = (props: HomeProps) => {
 const mapStateToProps = (state: State) => {
     return {
         banners: state.mainReducer.banners,
+		hiddenBeginnersBanner: state.mainReducer.hiddenBeginnersBanner,
     };
 }
 

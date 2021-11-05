@@ -1,8 +1,9 @@
 import { AnyAction } from 'redux';
-import { SET_BANNERS } from '../actions/actionTypes';
+import { SET_BANNERS, TOGGLE_BEGGINNERS_BANNER } from '../actions/actionTypes';
 
 const initialState = {
 	banners: [],
+	hiddenBeginnersBanner: false,
 };
 
 const mainReducer = (state = initialState, action: AnyAction) => {
@@ -11,6 +12,11 @@ const mainReducer = (state = initialState, action: AnyAction) => {
 			return { 
 				...state,
 				banners: action.value
+			};
+		case TOGGLE_BEGGINNERS_BANNER:
+			return { 
+				...state,
+				hiddenBeginnersBanner: !state.hiddenBeginnersBanner,
 			};
 	}
 

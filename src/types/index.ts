@@ -1,7 +1,8 @@
 export type { default as IconProps } from './react-native/iconProps';
 export type { default as TextWithDefaultProps } from './react-native/textWithDefaultProps';
 
-export type { default as HomeProps } from './react-navigation/homeProps';
+export type { default as SettingsProps } from './react-navigation/settingsProps';
+export type { default as WishCounterProps } from './react-navigation/wishCounterProps';
 
 export type { State } from './redux/state';
 
