@@ -11,7 +11,7 @@ const SettingsScreen = (props: SettingsProps) => (
 	<SafeAreaView style={tailwind('bg-content flex-1 items-center')}>
 		<View style={tailwind('flex flex-row justify-between w-5/6 mt-4')}>
 			<Text style={tailwind('font-genshin text-sm mt-1')}>
-				Hide Beginners banner
+				Hide Beginners Banner
 			</Text>
 
 			<Switch
