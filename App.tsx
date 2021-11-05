@@ -7,7 +7,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import SplashScreen from 'react-native-splash-screen';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createDrawerNavigator, DrawerHeaderProps } from '@react-navigation/drawer';
 import { WishCounterScreen } from './src/screens';
 import { Header } from './src/components';
 
@@ -31,8 +31,8 @@ const App = () => {
 						<Drawer.Navigator 
 							initialRouteName="WishCounterScreen"
 							screenOptions={{
-								header: () => (
-									<Header title="Wish Counter" />
+								header: (props: DrawerHeaderProps) => (
+									<Header {...props} title="Wish Counter" />
 								),
 							}}
 						>
