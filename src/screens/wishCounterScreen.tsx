@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Alert, Image, TextInput, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, Image, TextInput, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { tailwind } from '../utils/tailwind';
 import { setBanners } from '../store/actions';
 import { GenshinData, HomeProps, State } from '../types';
+import { ErrorModal, HelpModal } from '../components';
 import wishCounter from '../utils/wish';
-import { HelpModal } from '../components';
 
 const WishCounterScreen = (props: HomeProps) => {
-	const [ isVisible, setIsVisible ] = useState<boolean>(false);
+	const [ isHelpVisible, setIsHelpVisible ] = useState<boolean>(false);
+	const [ isErrorVisible, setIsErrorVisible ] = useState<boolean>(false);
+	const [ error, setError ] = useState<string>('');
 	const [ url, setUrl ] = useState<string>('');
 	const [ loading, setLoading ] = useState<boolean>(false);
 
@@ -20,7 +22,8 @@ const WishCounterScreen = (props: HomeProps) => {
 		const urlParsed = url.match(/https:\/\/.*\//g);
 
 		if (!urlParsed) {
-			Alert.alert('Ups...', 'The URL is not valid');
+			setError('The URL is not valid');
+			setIsErrorVisible(true);
 			return;
 		}
 	
@@ -31,13 +34,23 @@ const WishCounterScreen = (props: HomeProps) => {
 			setLoading(false);
 		}).catch(err => {
 			setLoading(false);
-			Alert.alert('Ups...', err.toString());
+			setError(err.toString());
+			setIsErrorVisible(true);
 		});
 	}
 
 	return (
 		<SafeAreaView style={tailwind('bg-content flex-1')}>
-			<HelpModal isVisible={isVisible} closeModal={() => setIsVisible(false)} />
+			<HelpModal 
+				isVisible={isHelpVisible}
+				closeModal={() => setIsHelpVisible(false)}
+			/>
+
+			<ErrorModal 
+				isVisible={isErrorVisible}
+				closeModal={() => setIsErrorVisible(false)}
+				error={error}
+			/>
 			
 			<ScrollView>
 				{
@@ -66,7 +79,7 @@ const WishCounterScreen = (props: HomeProps) => {
 									</View>
 								</TouchableOpacity>
 
-								<TouchableOpacity onPress={() => setIsVisible(true)}>
+								<TouchableOpacity onPress={() => setIsHelpVisible(true)}>
 									<View style={tailwind('bg-yellow-400 py-2 px-4 rounded')}>
 										<Text style={tailwind('font-genshin text-white text-center')}>
 											How to use

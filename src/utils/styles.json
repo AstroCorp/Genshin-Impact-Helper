@@ -5,6 +5,15 @@
     "bg-content": {
         "backgroundColor": "#F9F6F1"
     },
+    "bg-modal": {
+        "backgroundColor": "#F2EFEB"
+    },
+    "border-modal": {
+        "borderTopColor": "#D6C3B2",
+        "borderRightColor": "#D6C3B2",
+        "borderBottomColor": "#D6C3B2",
+        "borderLeftColor": "#D6C3B2"
+    },
     "border-title": {
         "borderTopColor": "#D17B6A",
         "borderRightColor": "#D17B6A",
