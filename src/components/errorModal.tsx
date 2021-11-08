@@ -5,7 +5,12 @@ import { CloseIcon } from '../assets/icons';
 import { tailwind } from '../utils/tailwind';
 
 const ErrorModal = ({ isVisible, closeModal, error }: any) => (
-    <Modal isVisible={isVisible} animationInTiming={500} animationOutTiming={500}>
+    <Modal 
+        isVisible={isVisible} 
+        animationInTiming={500} 
+        animationOutTiming={500} 
+        backdropTransitionOutTiming={0}
+    >
         <View style={tailwind('bg-modal w-full rounded p-0.5')}>
             <View style={tailwind('border-modal border-2 rounded')}>
                 <View style={tailwind('items-end m-4')}>

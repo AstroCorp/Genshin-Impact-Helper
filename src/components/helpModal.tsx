@@ -5,7 +5,12 @@ import { CloseModalIcon } from '../assets/icons';
 import { tailwind } from '../utils/tailwind';
 
 const HelpModal = ({ isVisible, closeModal }: any) => (
-    <Modal isVisible={isVisible} animationInTiming={500} animationOutTiming={500}>
+    <Modal 
+        isVisible={isVisible} 
+        animationInTiming={500} 
+        animationOutTiming={500} 
+        backdropTransitionOutTiming={0}
+    >
         <View style={tailwind('bg-content w-full')}>
             <View style={tailwind('bg-header')}>
                 <View style={tailwind('items-center m-1 border-white border border-opacity-25')}>
