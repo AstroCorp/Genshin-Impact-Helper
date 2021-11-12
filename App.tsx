@@ -10,7 +10,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator, DrawerContentComponentProps, DrawerHeaderProps } from '@react-navigation/drawer';
 import { WishCounterScreen, SettingsScreen } from './src/screens';
 import { Header, Drawer } from './src/components';
-import { WishIcon } from './src/assets/icons';
+import { SettingsIcon, WishIcon } from './src/assets/icons';
 
 const store = configureStore();
 const DrawerController = createDrawerNavigator();
@@ -56,7 +56,7 @@ const App = () => {
 								options={{
 									title: 'Settings',
 									drawerIcon: () => (
-										<WishIcon height={25} width={25} />
+										<SettingsIcon height={25} width={25} />
 									),
 								}}
 								component={SettingsScreen}
