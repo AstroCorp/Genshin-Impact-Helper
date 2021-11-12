@@ -108,7 +108,7 @@ const WishCounterScreen = (props: HomeProps) => {
 										5 ★ Pity
 									</Text>
 									<Text style={tailwind('font-genshin text-xs')}>
-										Guaranteed at 90
+										Guaranteed at { banner.banner.code === 302 ? '80' : '90' }
 									</Text>
 								</View>
 								<View style={tailwind('flex justify-center')}>
