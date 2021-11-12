@@ -26,6 +26,15 @@
         "borderBottomColor": "#545B6B",
         "borderLeftColor": "#545B6B"
     },
+    "bg-drawer-content": {
+        "backgroundColor": "#EBE4D7"
+    },
+    "bg-drawer-button": {
+        "backgroundColor": "#4E5769"
+    },
+    "text-drawer": {
+        "color": "#BEBDB8"
+    },
     "font-genshin": {
         "fontFamily": "HYWenHei-85W"
     }
