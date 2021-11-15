@@ -28,7 +28,7 @@ const Drawer = ({ descriptors, state, navigation }: DrawerContentComponentProps)
                             }}
                         >
                             <View style={tailwind('bg-drawer-button flex flex-row items-center justify-between mb-3 p-3 rounded')}>
-                                <Text style={tailwind('font-genshin text-sm text-drawer')}>{ title }</Text>
+                                <Text style={tailwind('font-genshin text-xs text-drawer')}>{ title }</Text>
                                 <View>{ iconNode }</View>
                             </View>
                         </TouchableNativeFeedback>
