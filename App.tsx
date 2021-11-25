@@ -8,9 +8,9 @@ import SplashScreen from 'react-native-splash-screen';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator, DrawerContentComponentProps, DrawerHeaderProps } from '@react-navigation/drawer';
-import { WishCounterScreen, SettingsScreen, TimelineScreen } from './src/screens';
+import { WishCounterScreen, SettingsScreen, EventsScreen } from './src/screens';
 import { Header, Drawer } from './src/components';
-import { SettingsIcon, TimelineIcon, WishIcon } from './src/assets/icons';
+import { SettingsIcon, EventsIcon, WishIcon } from './src/assets/icons';
 
 const store = configureStore();
 const DrawerController = createDrawerNavigator();
@@ -52,14 +52,14 @@ const App = () => {
 							/>
 
 							<DrawerController.Screen 
-								name="TimelineScreen"
+								name="EventsScreen"
 								options={{
-									title: 'Timeline',
+									title: 'Events',
 									drawerIcon: () => (
-										<TimelineIcon height={25} width={25} />
+										<EventsIcon height={25} width={25} />
 									),
 								}}
-								component={TimelineScreen}
+								component={EventsScreen}
 							/>
 
 							<DrawerController.Screen 

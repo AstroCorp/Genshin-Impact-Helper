@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { tailwind } from '../utils/tailwind';
-import { TimelineProps, State } from '../types';
+import { EventsProps, State } from '../types';
 import { ErrorModal } from '../components';
+import getEvents from '../utils/events';
 
-const TimelineScreen = (props: TimelineProps) => {
+const EventsScreen = (props: EventsProps) => {
 	const [ isErrorVisible, setIsErrorVisible ] = useState<boolean>(false);
 	const [ error, setError ] = useState<string>('');
 	const [ loading, setLoading ] = useState<boolean>(false);
+
+	useEffect(() => {
+		const events = getEvents();
+		console.log(events)
+	}, []);
 
 	return (
 		<SafeAreaView style={tailwind('bg-content flex-1')}>
@@ -39,4 +45,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TimelineScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(EventsScreen);

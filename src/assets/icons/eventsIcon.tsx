@@ -2,7 +2,7 @@ import React from 'react';
 import Svg, { Path } from 'react-native-svg';
 import IconProps from '../../types/react-native/iconProps';
 
-const TimelineIcon = (props: IconProps) => (
+const EventsIcon = (props: IconProps) => (
 	<Svg
 		viewBox="0 0 512 512"
 		{...props}
@@ -18,4 +18,4 @@ const TimelineIcon = (props: IconProps) => (
 	</Svg>
 );
 
-export default TimelineIcon;
+export default EventsIcon;
