@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, Image, TextInput, ScrollView } from 'reac
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { tailwind } from '../utils/tailwind';
+import tailwind from '../utils/tailwind';
 import { setBanners } from '../store/actions';
 import { GenshinData, WishCounterProps, State } from '../types';
 import { ErrorModal, HelpModal } from '../components';
@@ -38,7 +38,7 @@ const WishCounterScreen = (props: WishCounterProps) => {
 	}
 
 	return (
-		<SafeAreaView style={tailwind('bg-content flex-1')}>
+		<SafeAreaView style={tailwind`bg-screen-background flex-1`}>
 			<HelpModal 
 				isVisible={isHelpVisible}
 				closeModal={() => setIsHelpVisible(false)}
@@ -53,33 +53,34 @@ const WishCounterScreen = (props: WishCounterProps) => {
 			<ScrollView>
 				{
 					loading ? (
-						<View style={tailwind('flex items-center')}>
+						<View style={tailwind`flex items-center`}>
 							<Image 
-								style={tailwind('w-1/2')} 
+								style={tailwind`w-1/2`} 
 								resizeMode="contain" 
 								source={require('../assets/images/loading.gif')} 
 							/>
 						</View>
 					) : (
-						<View style={tailwind('flex items-center mt-4')}>
+						<View style={tailwind`flex items-center mt-4`}>
 							<TextInput 
 								onChangeText={text => setUrl(text)}
 								placeholder="Paste text here... Webpage not available..."
-								style={tailwind('bg-white w-4/5 p-2 rounded text-sm mb-4')}
+								placeholderTextColor="#CCCCCC"
+								style={tailwind`bg-white w-4/5 p-2 rounded text-sm mb-4`}
 							/>
 
-							<View style={tailwind('flex flex-row mb-4')}>
-								<TouchableOpacity style={tailwind('mr-2')} onPress={initWishCounter}>
-									<View style={tailwind('bg-yellow-400 py-2 px-4 rounded')}>
-										<Text style={tailwind('font-genshin text-white text-center')}>
+							<View style={tailwind`flex flex-row mb-4`}>
+								<TouchableOpacity style={tailwind`mr-2`} onPress={initWishCounter}>
+									<View style={tailwind`bg-yellow-400 py-2 px-4 rounded`}>
+										<Text style={tailwind`font-genshin text-white text-center`}>
 											Get wishes
 										</Text>
 									</View>
 								</TouchableOpacity>
 
 								<TouchableOpacity onPress={() => setIsHelpVisible(true)}>
-									<View style={tailwind('bg-yellow-400 py-2 px-4 rounded')}>
-										<Text style={tailwind('font-genshin text-white text-center')}>
+									<View style={tailwind`bg-yellow-400 py-2 px-4 rounded`}>
+										<Text style={tailwind`font-genshin text-white text-center`}>
 											How to use
 										</Text>
 									</View>
@@ -97,36 +98,36 @@ const WishCounterScreen = (props: WishCounterProps) => {
 						
 						return true;
 					}).map((banner: GenshinData) => (
-						<View style={tailwind('m-2')} key={banner.banner.code}>
-							<Text style={tailwind('pl-2 font-genshin')}>{ banner.banner.title }</Text>
+						<View style={tailwind`m-2`} key={banner.banner.code}>
+							<Text style={tailwind`pl-2 font-genshin text-screen-title`}>{ banner.banner.title }</Text>
 
-							<View style={tailwind('bg-yellow-100 rounded flex flex-row justify-between m-2 p-4')}>
+							<View style={tailwind`bg-yellow-100 rounded flex flex-row justify-between m-2 p-4`}>
 								<View>
-									<Text style={tailwind('font-genshin text-base')}>
+									<Text style={tailwind`font-genshin text-base text-screen-text`}>
 										5 ★ Pity
 									</Text>
-									<Text style={tailwind('font-genshin text-xs')}>
+									<Text style={tailwind`font-genshin text-xs text-screen-text`}>
 										Guaranteed at { banner.banner.code === 302 ? '80' : '90' }
 									</Text>
 								</View>
-								<View style={tailwind('flex justify-center')}>
-									<Text style={tailwind('font-genshin text-2xl')}>
+								<View style={tailwind`flex justify-center`}>
+									<Text style={tailwind`font-genshin text-2xl text-screen-text`}>
 										{ banner.pity.fiveStarts }
 									</Text>
 								</View>
 							</View>
 
-							<View style={tailwind('bg-yellow-100 rounded flex flex-row justify-between m-2 p-4')}>
+							<View style={tailwind`bg-yellow-100 rounded flex flex-row justify-between m-2 p-4`}>
 								<View>
-									<Text style={tailwind('font-genshin text-base')}>
+									<Text style={tailwind`font-genshin text-base text-screen-text`}>
 										4 ★ Pity
 									</Text>
-									<Text style={tailwind('font-genshin text-xs')}>
+									<Text style={tailwind`font-genshin text-xs text-screen-text`}>
 										Guaranteed at 10
 									</Text>
 								</View>
-								<View style={tailwind('flex justify-center')}>
-									<Text style={tailwind('font-genshin text-2xl')}>
+								<View style={tailwind`flex justify-center`}>
+									<Text style={tailwind`font-genshin text-2xl text-screen-text`}>
 										{ banner.pity.fourStarts }
 									</Text>
 								</View>

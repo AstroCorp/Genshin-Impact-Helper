@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { Text, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { tailwind } from '../utils/tailwind';
+import tailwind from '../utils/tailwind';
 import { EventsProps, State } from '../types';
 import { ErrorModal } from '../components';
 import getEvents from '../utils/events';
@@ -19,7 +19,7 @@ const EventsScreen = (props: EventsProps) => {
 	}, []);
 
 	return (
-		<SafeAreaView style={tailwind('bg-content flex-1')}>
+		<SafeAreaView style={tailwind`bg-screen-background flex-1`}>
 			<ErrorModal 
 				isVisible={isErrorVisible}
 				closeModal={() => setIsErrorVisible(false)}
@@ -27,7 +27,7 @@ const EventsScreen = (props: EventsProps) => {
 			/>
 			
 			<ScrollView>
-				<Text>Content</Text>
+				<Text style={tailwind`font-genshin text-settings-text text-sm mt-1`}>Content</Text>
 			</ScrollView>
 		</SafeAreaView>
 	);

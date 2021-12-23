@@ -3,14 +3,14 @@ import { View, Text, Switch } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { tailwind } from '../utils/tailwind';
+import tailwind from '../utils/tailwind';
 import { SettingsProps, State } from '../types';
 import { toggleHiddenBeginnersBanner } from '../store/actions/mainActions';
 
 const SettingsScreen = (props: SettingsProps) => (
-	<SafeAreaView style={tailwind('bg-content flex-1 items-center')}>
-		<View style={tailwind('flex flex-row justify-between w-5/6 mt-4')}>
-			<Text style={tailwind('font-genshin text-sm mt-1')}>
+	<SafeAreaView style={tailwind`bg-screen-background flex-1 items-center`}>
+		<View style={tailwind`flex flex-row justify-between w-5/6 mt-4`}>
+			<Text style={tailwind`font-genshin text-settings-text text-sm mt-1`}>
 				Hide Beginners Banner
 			</Text>
 

@@ -1,8 +1,5 @@
-import { create } from 'tailwind-rn';
+import { create } from 'twrnc';
 
-const { tailwind, getColor } = create({
-    ...require('tailwind-rn/styles.json'),
-    ...require('./styles.json'),
-});
+const tailwind = create(require(`../../tailwind.config.js`));
 
-export { tailwind, getColor };
+export default tailwind;

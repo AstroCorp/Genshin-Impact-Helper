@@ -2,11 +2,11 @@ import React from 'react';
 import { ScrollView, View, Text, TouchableNativeFeedback } from 'react-native';
 import { DrawerContentComponentProps } from '@react-navigation/drawer';
 import { CommonActions, DrawerActions } from '@react-navigation/routers';
-import { tailwind } from '../../utils/tailwind';
+import tailwind from '../../utils/tailwind';
 
 const Drawer = ({ descriptors, state, navigation }: DrawerContentComponentProps) => (
-    <ScrollView style={tailwind('bg-drawer-content')}>
-        <View style={tailwind('flex flex-col mt-3 mx-3')}>
+    <ScrollView style={tailwind`bg-drawer-background`}>
+        <View style={tailwind`flex flex-col mt-3 mx-3`}>
             {
                 state.routes.map((route, i) => {
                     const focused = i === state.index;
@@ -27,8 +27,8 @@ const Drawer = ({ descriptors, state, navigation }: DrawerContentComponentProps)
                                 });
                             }}
                         >
-                            <View style={tailwind('bg-drawer-button flex flex-row items-center justify-between mb-3 p-3 rounded')}>
-                                <Text style={tailwind('font-genshin text-xs text-drawer')}>{ title }</Text>
+                            <View style={tailwind`bg-drawer-button flex flex-row items-center justify-between mb-3 p-3 rounded`}>
+                                <Text style={tailwind`font-genshin text-xs text-drawer-text`}>{ title }</Text>
                                 <View>{ iconNode }</View>
                             </View>
                         </TouchableNativeFeedback>
