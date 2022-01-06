@@ -10,7 +10,7 @@ import { toggleHiddenBeginnersBanner } from '../store/actions/mainActions';
 const SettingsScreen = (props: SettingsProps) => (
 	<SafeAreaView style={tailwind`bg-screen-background flex-1 items-center`}>
 		<View style={tailwind`flex flex-row justify-between w-5/6 mt-4`}>
-			<Text style={tailwind`font-genshin text-settings-text text-sm mt-1`}>
+			<Text style={tailwind`font-genshin text-screen-text text-sm mt-1`}>
 				Hide Beginners Banner
 			</Text>
 

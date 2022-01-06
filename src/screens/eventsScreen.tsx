@@ -27,7 +27,7 @@ const EventsScreen = (props: EventsProps) => {
 			/>
 			
 			<ScrollView>
-				<Text style={tailwind`font-genshin text-settings-text text-sm mt-1`}>Content</Text>
+				<Text style={tailwind`font-genshin text-screen-text text-sm mt-1`}>Content</Text>
 			</ScrollView>
 		</SafeAreaView>
 	);

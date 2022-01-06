@@ -21,10 +21,8 @@ module.exports = {
         screen: {
           background: '#F9F6F1',
           title: '#BF9000',
-          text: '#A89000',
-        },
-        settings: {
-          text: '#69748C',
+          subtitle: '#A89000',
+          text: '#72716F',
         },
       },
       fontFamily: {

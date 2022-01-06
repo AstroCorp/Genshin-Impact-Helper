@@ -23,7 +23,7 @@ const ErrorModal = ({ isVisible, closeModal, error }: any) => (
 
                 <View style={tailwind`p-2 items-center`}>
                     <Image source={require('../assets/images/error.gif')} />
-                    <Text style={tailwind`font-genshin text-lg text-center mt-4 mb-2`}>{ error }</Text>
+                    <Text style={tailwind`font-genshin text-screen-text text-lg text-center mt-4 mb-2`}>{ error }</Text>
                 </View>
             </View>
         </View>

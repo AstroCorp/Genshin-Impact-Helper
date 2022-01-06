@@ -1,4 +1,5 @@
 import { URL } from 'react-native-url-polyfill';
+import { dispatch } from 'use-bus';
 import { GenshinWish, GenshinData } from '../types';
 
 const getLog = (url: URL, wishNumber: number, page: number, lastId: string): Promise<GenshinWish[]> => {
@@ -63,6 +64,14 @@ const wishCounter = async (genshinUrl: string): Promise<GenshinData[]> => {
         do {
             const list = await getLog(url, wishNumber.code, page, lastId);
             wishes.push(...list);
+
+            dispatch({
+                type: '@wishCounter/progress',
+                payload: {
+                    title: wishNumber.title,
+                    wishCount: wishes.length,
+                },
+            });
 
             hasWishes = list.length > 0;
 
