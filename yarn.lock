@@ -6361,10 +6361,10 @@ react-native-animatable@1.3.3:
   dependencies:
     prop-types "^15.7.2"
 
-react-native-bootsplash@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/react-native-bootsplash/-/react-native-bootsplash-4.0.2.tgz#af64537a65ea18bf1cbb09633600975cfe48c51d"
-  integrity sha512-zSorquCsF1jxEhJK+UQR4Tb9a9TeYegrrJwb5ANkFksKnViNVg91PjmYI+/UNrhfgM0fLxUm7agHP1v5AfuBtQ==
+react-native-bootsplash@^4.1.3:
+  version "4.1.3"
+  resolved "https://registry.yarnpkg.com/react-native-bootsplash/-/react-native-bootsplash-4.1.3.tgz#380d82cfea28a7776e4ecd19dde651f520b31cef"
+  integrity sha512-mnXe/3N4MQsYmadiWrLGjqUOmm9j1FGMa6CyBQhNzjHSwF7+d+dgai+p8lHjTbNt/ua/3eTW92OxqYGps+N9Iw==
   dependencies:
     chalk "^4.1.2"
     fs-extra "^10.0.0"
