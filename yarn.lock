@@ -7693,10 +7693,10 @@ urix@^0.1.0:
   resolved "https://registry.yarnpkg.com/urix/-/urix-0.1.0.tgz#da937f7a62e21fec1fd18d49b35c2935067a6c72"
   integrity sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
 
-use-bus@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/use-bus/-/use-bus-2.3.1.tgz#b96aebe753d99eca7cb6bd019a986d0f6eb1ca04"
-  integrity sha512-dAmoAiWmM0/YhrytHSt0zU0dJe1CW1HqsuTfe4w1mJaBOCGWe2SxSjyEXmZISgjbCRSJORtjtApYNDLxiWqGCg==
+use-bus@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/use-bus/-/use-bus-2.5.0.tgz#ce7b95a7ae696f4b210df97ec3f2f16f3804186f"
+  integrity sha512-x131SW3KRaykCgtHCFGJIhOHHQNVuDmpZUBz3kacFANh3T5yRTvNgWgZ7h3HRXIzyxBCt/mwltgpF+YiyuzFfA==
 
 use-subscription@^1.0.0:
   version "1.5.1"
