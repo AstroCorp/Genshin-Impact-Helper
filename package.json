@@ -35,7 +35,7 @@
     "redux": "^4.1.2",
     "redux-persist": "^6.0.0",
     "twrnc": "^2.2.0",
-    "use-bus": "^2.3.1"
+    "use-bus": "^2.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
