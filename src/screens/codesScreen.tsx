@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, ScrollView, Linking } from 'react-native';
+import { Text, ScrollView, Linking } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
 import firestore from '@react-native-firebase/firestore';
 import tailwind from '../utils/tailwind';
-import { EventsProps, GenshinCode, State } from '../types';
+import { EventsProps, GenshinCode } from '../types';
 import { ErrorModal } from '../components';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -80,16 +78,4 @@ const CodesScreen = (props: EventsProps) => {
 	);
 }
 
-const mapStateToProps = (state: State) => {
-    return {
-        //
-    };
-}
-
-const mapDispatchToProps = (dispatch: Dispatch) => {
-    return {
-        //
-    };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(CodesScreen);
+export default CodesScreen;

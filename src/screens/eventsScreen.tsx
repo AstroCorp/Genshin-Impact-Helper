@@ -1,10 +1,8 @@
 import React from 'react';
 import { Text, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
 import tailwind from '../utils/tailwind';
-import { EventsProps, State } from '../types';
+import { EventsProps } from '../types';
 
 const EventsScreen = (props: EventsProps) => {
 	return (
@@ -16,16 +14,4 @@ const EventsScreen = (props: EventsProps) => {
 	);
 }
 
-const mapStateToProps = (state: State) => {
-    return {
-        //
-    };
-}
-
-const mapDispatchToProps = (dispatch: Dispatch) => {
-    return {
-        //
-    };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(EventsScreen);
+export default EventsScreen;

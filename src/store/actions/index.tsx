@@ -1,1 +1,0 @@
-export { setBanners } from './mainActions';

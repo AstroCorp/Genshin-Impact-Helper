@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Image, TextInput, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
 import useBus from 'use-bus';
 import tailwind from '../utils/tailwind';
-import { setBanners } from '../store/actions';
-import { GenshinData, WishCounterProps, State } from '../types';
+import { GenshinData, WishCounterProps } from '../types';
 import { ErrorModal, HelpModal } from '../components';
 import wishCounter from '../utils/wishCounter';
+import { useRecoilState } from 'recoil';
+import { wishCounterState } from '../utils/store';
 
 const WishCounterScreen = (props: WishCounterProps) => {
 	const [ isHelpVisible, setIsHelpVisible ] = useState<boolean>(false);
@@ -17,6 +16,7 @@ const WishCounterScreen = (props: WishCounterProps) => {
 	const [ url, setUrl ] = useState<string>('');
 	const [ loading, setLoading ] = useState<boolean>(false);
 	const [ progressMessage, setProgressMessage ] = useState<string>('');
+	const [ banners, setBanners ] = useRecoilState(wishCounterState);
 
 	useBus(
 		'@wishCounter/progress',
@@ -36,7 +36,7 @@ const WishCounterScreen = (props: WishCounterProps) => {
 		setLoading(true);
 
 		wishCounter(urlParsed.toString()).then(banners => {
-			props.setBanners(banners);
+			setBanners(banners);
 			setLoading(false);
 			setProgressMessage('');
 		}).catch(err => {
@@ -110,7 +110,7 @@ const WishCounterScreen = (props: WishCounterProps) => {
 				}
 				
 				{
-					props.banners.filter((banner: GenshinData) => {
+					banners.filter((banner: GenshinData) => {
 						if (banner.banner.code === 100 && props.hiddenBeginnersBanner) {
 							return false;
 						}
@@ -159,17 +159,4 @@ const WishCounterScreen = (props: WishCounterProps) => {
 	);
 };
 
-const mapStateToProps = (state: State) => {
-    return {
-        banners: state.mainReducer.banners,
-		hiddenBeginnersBanner: state.mainReducer.hiddenBeginnersBanner,
-    };
-}
-
-const mapDispatchToProps = (dispatch: Dispatch) => {
-    return {
-        setBanners: (value: GenshinData[]) => dispatch(setBanners(value)),
-    };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(WishCounterScreen);
+export default WishCounterScreen;

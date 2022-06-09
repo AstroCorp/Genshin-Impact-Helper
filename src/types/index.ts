@@ -5,7 +5,5 @@ export type { default as SettingsProps } from './react-navigation/settingsProps'
 export type { default as EventsProps } from './react-navigation/eventsProps';
 export type { default as WishCounterProps } from './react-navigation/wishCounterProps';
 
-export type { State } from './redux/state';
-
 export type { GenshinCode } from './genshinCode';
 export type { GenshinWish, GenshinData } from './genshinLog';
