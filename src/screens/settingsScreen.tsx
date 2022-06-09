@@ -6,9 +6,12 @@ import { Dispatch } from 'redux';
 import tailwind from '../utils/tailwind';
 import { SettingsProps, State } from '../types';
 import { toggleHiddenBeginnersBanner } from '../store/actions/mainActions';
+import { LoginButton } from '../components';
 
 const SettingsScreen = (props: SettingsProps) => (
 	<SafeAreaView style={tailwind`bg-screen-background flex-1 items-center`}>
+		<LoginButton style={tailwind`mt-4`} />
+		
 		<View style={tailwind`flex flex-row justify-between w-5/6 mt-4`}>
 			<Text style={tailwind`font-genshin text-screen-text text-sm mt-1`}>
 				Hide Beginners Banner
