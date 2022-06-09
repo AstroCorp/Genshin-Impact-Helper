@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "719414569766",
+    "firebase_url": "https://genshin-impact-helper-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "genshin-impact-helper",
+    "storage_bucket": "genshin-impact-helper.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719414569766:android:1c9e4d130e8889f496afe7",
+        "android_client_info": {
+          "package_name": "com.astro.ghhelper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "719414569766-srmggqsvmatd889o9c1k93d7ljhuonae.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.astro.ghhelper",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "719414569766-nerps5bi3rvuv4f71d630q54nnmpq4t4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZg_zMabehpqeJdaXPD0nVBEJo7mKrRLk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "719414569766-nerps5bi3rvuv4f71d630q54nnmpq4t4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

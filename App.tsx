@@ -8,9 +8,9 @@ import RNBootSplash from "react-native-bootsplash";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator, DrawerContentComponentProps, DrawerHeaderProps } from '@react-navigation/drawer';
-import { WishCounterScreen, SettingsScreen, EventsScreen } from './src/screens';
+import { WishCounterScreen, SettingsScreen, EventsScreen, CodesScreen } from './src/screens';
 import { Header, Drawer } from './src/components';
-import { SettingsIcon, EventsIcon, WishIcon } from './src/assets/icons';
+import { SettingsIcon, EventsIcon, WishIcon, CodesIcon } from './src/assets/icons';
 
 const store = configureStore();
 const DrawerController = createDrawerNavigator();
@@ -57,6 +57,17 @@ const App = () => (
 								),
 							}}
 							component={EventsScreen}
+						/>
+
+						<DrawerController.Screen 
+							name="CodesScreen"
+							options={{
+								title: 'Codes',
+								drawerIcon: () => (
+									<CodesIcon height={25} width={25} />
+								),
+							}}
+							component={CodesScreen}
 						/>
 
 						<DrawerController.Screen 

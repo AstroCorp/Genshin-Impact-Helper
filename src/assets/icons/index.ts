@@ -1,5 +1,6 @@
 export { default as CloseIcon } from './closeIcon';
 export { default as CloseModalIcon } from './closeModalIcon';
+export { default as CodesIcon } from './codesIcon';
 export { default as EventsIcon } from './eventsIcon';
 export { default as MenuIcon } from './menuIcon';
 export { default as SettingsIcon } from './settingsIcon';
