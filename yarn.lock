@@ -6876,10 +6876,10 @@ react-native-gradle-plugin@^0.0.6:
   resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.0.6.tgz#b61a9234ad2f61430937911003cddd7e15c72b45"
   integrity sha512-eIlgtsmDp1jLC24dRn43hB3kEcZVqx6DUQbR0N1ABXGnMEafm9I3V3dUUeD1vh+Dy5WqijSoEwLNUPLgu5zDMg==
 
-react-native-mmkv@^2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/react-native-mmkv/-/react-native-mmkv-2.4.1.tgz#9e6a29f55911be2b990776bfb961b4f118126153"
-  integrity sha512-sCH8nm7KmRnMzG6wNDfon8jw/mFUfVAEQed5258kpMc2LtEdK47P34GPCovTnEtogWX8z8RQZ5rEGGgty8srtA==
+react-native-mmkv@^2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/react-native-mmkv/-/react-native-mmkv-2.4.2.tgz#6a0ee009d13dafe12834885a434f1cc5aa04851b"
+  integrity sha512-0JubkaYOub4pFko5ButzFpy7VaPqt3bhHG8jiRBBhNw97KiYMhyO95eZm4JUp3tSP2KSw7WUY+8pwnyBco+ffg==
 
 react-native-modal@^13.0.1:
   version "13.0.1"
