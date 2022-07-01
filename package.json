@@ -37,7 +37,7 @@
     "react-native-screens": "^3.13.1",
     "react-native-svg": "^12.3.0",
     "react-native-url-polyfill": "^1.3.0",
-    "recoil": "^0.7.3",
+    "recoil": "^0.7.4",
     "twrnc": "^2.3.0",
     "use-bus": "^2.5.1"
   },
