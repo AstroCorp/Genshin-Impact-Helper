@@ -19,6 +19,13 @@ export const wishCounterState = atom({
     default: [],
 });
 
+export const sessionState = atom({
+    key: 'session',
+    default: {
+        isSignedIn: false,
+    },
+});
+
 export const PersistStorage = () => {
     const DEFAULT_TIMEOUT = 2000;
     const [ saveTimeout, setSaveTimeout ] = useState<NodeJS.Timeout|null>(null);

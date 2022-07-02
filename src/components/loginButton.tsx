@@ -3,9 +3,12 @@ import auth from '@react-native-firebase/auth';
 import { GoogleSignin, GoogleSigninButton } from '@react-native-google-signin/google-signin';
 import { TouchableOpacity, Text, View, ViewProps } from 'react-native';
 import tailwind from '../utils/tailwind';
+import { useRecoilState } from 'recoil';
+import { sessionState } from '../utils/store';
+import { SessionState } from '../types/storte';
 
 const LoginButton = (props: ViewProps) => {
-	const [ isSignedIn, setIsSignedIn ] = useState<boolean>(true);
+	const [ session, setSession ] = useRecoilState<SessionState>(sessionState);
 
 	useEffect(() => {
 		GoogleSignin.configure({
@@ -25,7 +28,10 @@ const LoginButton = (props: ViewProps) => {
 
 	const checkSignedIn = async () => {
 		const checkSession = await GoogleSignin.isSignedIn();
-		setIsSignedIn(checkSession);
+		setSession({
+			...session,
+			isSignedIn: checkSession,
+		});
 	}
 
 	const logout = async () => {
@@ -37,7 +43,7 @@ const LoginButton = (props: ViewProps) => {
 	return (
         <View {...props}>
             {
-                !isSignedIn ? (
+                !session.isSignedIn ? (
                     <GoogleSigninButton
                         style={{ width: 192, height: 48 }}
                         size={GoogleSigninButton.Size.Wide}
