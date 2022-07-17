@@ -1,10 +1,12 @@
 interface GenshinAward {
-    name: string;
-    amount: number;
+	name: string;
+	amount: number;
 }
 
 export interface GenshinCode {
-    code: string;
-    expire_date: string;
-    awards: GenshinAward[];
+	id: string;
+	code: string;
+	expire_date: string;
+	awards: GenshinAward[];
+	image: string;
 }

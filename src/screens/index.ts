@@ -1,3 +1,4 @@
+export { default as AddCodeScreen } from './addCodeScreen';
 export { default as CodesScreen } from './codesScreen';
 export { default as EventsScreen } from './eventsScreen';
 export { default as SettingsScreen } from './settingsScreen';

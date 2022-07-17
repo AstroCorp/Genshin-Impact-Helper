@@ -5,10 +5,10 @@ import { TouchableOpacity, Text, View, ViewProps } from 'react-native';
 import tailwind from '../utils/tailwind';
 import { useRecoilState } from 'recoil';
 import { sessionState } from '../utils/store';
-import { SessionState } from '../types/storte';
+import { SessionState } from '../types';
 
 const LoginButton = (props: ViewProps) => {
-	const [ session, setSession ] = useRecoilState<SessionState>(sessionState);
+	const [session, setSession] = useRecoilState<SessionState>(sessionState);
 
 	useEffect(() => {
 		GoogleSignin.configure({
@@ -21,10 +21,10 @@ const LoginButton = (props: ViewProps) => {
 	const onGoogleButtonPress = async () => {
 		const { idToken } = await GoogleSignin.signIn();
 		const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-		
+
 		await auth().signInWithCredential(googleCredential);
 		await checkSignedIn();
-	}
+	};
 
 	const checkSignedIn = async () => {
 		const checkSession = await GoogleSignin.isSignedIn();
@@ -32,32 +32,33 @@ const LoginButton = (props: ViewProps) => {
 			...session,
 			isSignedIn: checkSession,
 		});
-	}
+	};
 
 	const logout = async () => {
 		await GoogleSignin.revokeAccess();
 		await auth().signOut();
 		await checkSignedIn();
-	}
+	};
 
 	return (
-        <View {...props}>
-            {
-                !session.isSignedIn ? (
-                    <GoogleSigninButton
-                        style={{ width: 192, height: 48 }}
-                        size={GoogleSigninButton.Size.Wide}
-                        color={GoogleSigninButton.Color.Dark}
-                        onPress={onGoogleButtonPress}
-                    />
-                ) : (
-					<TouchableOpacity style={tailwind`bg-header-underline rounded py-2 px-4`} onPress={logout}>
-						<Text style={tailwind`text-white`}>Logout</Text>
-					</TouchableOpacity>
-				)
-            }
-        </View>
+		<View {...props}>
+			{!session.isSignedIn ? (
+				<GoogleSigninButton
+					style={{ width: 192, height: 48 }}
+					size={GoogleSigninButton.Size.Wide}
+					color={GoogleSigninButton.Color.Dark}
+					onPress={onGoogleButtonPress}
+				/>
+			) : (
+				<TouchableOpacity
+					style={tailwind('bg-header-underline rounded py-2 px-4')}
+					onPress={logout}
+				>
+					<Text style={tailwind('font-genshin text-white')}>Logout</Text>
+				</TouchableOpacity>
+			)}
+		</View>
 	);
-}
+};
 
 export default LoginButton;

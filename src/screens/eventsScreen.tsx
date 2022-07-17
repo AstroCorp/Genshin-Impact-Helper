@@ -1,17 +1,17 @@
 import React from 'react';
 import { Text, ScrollView } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import tailwind from '../utils/tailwind';
 import { EventsProps } from '../types';
+import { ContentView } from '../components';
 
 const EventsScreen = (props: EventsProps) => {
 	return (
-		<SafeAreaView style={tailwind`bg-screen-background flex-1`}>
+		<ContentView>
 			<ScrollView>
-				<Text style={tailwind`p-2`}>In progress...</Text>
+				<Text style={tailwind('p-2 font-genshin')}>In progress...</Text>
 			</ScrollView>
-		</SafeAreaView>
+		</ContentView>
 	);
-}
+};
 
 export default EventsScreen;

@@ -11,9 +11,9 @@ const ErrorModal = ({ isVisible, closeModal, error }: any) => (
         animationOutTiming={500} 
         backdropTransitionOutTiming={0}
     >
-        <View style={tailwind`bg-modal-background w-full rounded p-0.5`}>
-            <View style={tailwind`border-modal-border border-2 rounded`}>
-                <View style={tailwind`items-end m-4`}>
+        <View style={tailwind('bg-modal-background w-full rounded p-0.5')}>
+            <View style={tailwind('border-modal-border border-2 rounded')}>
+                <View style={tailwind('items-end m-4')}>
                     <TouchableOpacity onPress={closeModal}>
                         <View>
                             <CloseIcon height={25} width={25} />
@@ -21,9 +21,9 @@ const ErrorModal = ({ isVisible, closeModal, error }: any) => (
                     </TouchableOpacity>
                 </View>
 
-                <View style={tailwind`p-2 items-center`}>
+                <View style={tailwind('p-2 items-center')}>
                     <Image source={require('../assets/images/error.gif')} />
-                    <Text style={tailwind`font-genshin text-screen-text text-lg text-center mt-4 mb-2`}>{ error }</Text>
+                    <Text style={tailwind('font-genshin text-screen-text text-lg text-center mt-4 mb-2')}>{ error }</Text>
                 </View>
             </View>
         </View>

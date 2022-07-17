@@ -7,3 +7,4 @@ export type { default as WishCounterProps } from './react-navigation/wishCounter
 
 export type { GenshinCode } from './genshinCode';
 export type { GenshinWish, GenshinData } from './genshinLog';
+export type { SessionState } from './store';

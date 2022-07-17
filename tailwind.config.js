@@ -1,5 +1,5 @@
 module.exports = {
-  purge: [],
+  content: ["./src/**/*.{tsx}"],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -23,6 +23,7 @@ module.exports = {
           title: '#BF9000',
           subtitle: '#A89000',
           text: '#72716F',
+          box: '#E5E1D6',
         },
       },
       fontFamily: {
