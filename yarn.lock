@@ -6751,10 +6751,10 @@ react-native-image-picker@^4.8.4:
   resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-4.8.4.tgz#ac52f1e265458e944664adf1dcd0a9ee408fe083"
   integrity sha512-Mjh2j/sddyolb16EpmprWzbtyeFvW8Xgzr/8WNi9d6bR2FC/kL78cY/a+7Yzujg5ZDtT1MWys+eWw/qtfwgGiw==
 
-react-native-mmkv@^2.4.3:
-  version "2.4.3"
-  resolved "https://registry.yarnpkg.com/react-native-mmkv/-/react-native-mmkv-2.4.3.tgz#6bb4c2d5e328513da11faab1371d056a189adbd0"
-  integrity sha512-0hYNOTbsjJ5j5cpX+qjwReGIxuYE9MWRsyPQ72fTOvzmEjYXCF4Wr2VQoqx8R6W1/Uinekvln7dGvJ4RExmHhQ==
+react-native-mmkv@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/react-native-mmkv/-/react-native-mmkv-2.6.0.tgz#71a4b6f8c5832fb78b4deb4b7cf71ca2b2ddbedc"
+  integrity sha512-Vq6JDgx1e6vYc8nNwHk9KJezI2+qIQvU/AlpxAWt1Qcgpc/HJJYiq1gonDTT85mmQzKILGE+USQeMk3IOzgK0w==
 
 react-native-modal@^13.0.1:
   version "13.0.1"
